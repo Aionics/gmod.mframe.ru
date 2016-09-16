@@ -5,6 +5,12 @@
         <title>Title</title>
         <link rel="stylesheet" href="/libs/mdl/material.min.css">
         <script src="/libs/mdl/material.min.js"></script>
+        <script src="/libs/knockout-3.4.0.js"></script>
+        <script src="/libs/jquery-3.1.0.min.js"></script>
+        <script src="libs/history.js"></script>
+         <script src="libs/history.adapter.native.js"></script>
+         <script src="libs/pager.js"></script>
+        <script src="index.js"></script>
         <link rel="stylesheet" href="master.css" media="screen">
     </head>
     <body>
@@ -21,13 +27,10 @@
                 </div>
                 <div class="menu-bar">
                     <div class="btn-grp">
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                            Статистика
-                        </button>
-                        <button class="selected mdl-button mdl-js-button mdl-js-ripple-effect">
+                        <button data-bind="click: function() { goto('statistics') }, css: {selected: site.currentPage() == 'statistics'}" class="selected mdl-button mdl-js-button mdl-js-ripple-effect">
                             Хуистика
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                        <button data-bind="click: function() { goto('rules') }, css: {selected: site.currentPage() == 'rules'}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                             Правила
                         </button>
                     </div>
@@ -35,9 +38,35 @@
             </div>
             <div class="mdl-cell mdl-cell--10-col content-wrapper">
                 <div class="content mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                    <p>sas</p>
+                    <div data-bind="page: {
+                        id: 'statistics',
+                        source: 'statistics.html'
+                    }"></div>
+                    <div data-bind="page: {
+                        id: 'rules',
+                        source: 'rules.html'
+                    }"></div>
                 </div>
             </div>
         </div>
+<!--
+        <div data-bind="page: {
+            id: 'statistics',
+            source: 'pages/statistics.html',
+            role: 'start'
+        }"></div>
+        <div data-bind="page: {
+            id: 'login',
+            source: 'pages/Login.html',
+        }"></div>
+        <div data-bind="page: {
+            id: 'admin',
+            source: 'pages/Admin.html'
+        }"></div>
+        <div data-bind="page: {
+            id: 'edit_user',
+            source: 'pages/EditUser.html'
+        }"></div> -->
+
     </body>
 </html>
