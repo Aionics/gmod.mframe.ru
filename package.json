@@ -6,8 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "debug": "~2.2.0",
     "express": "~4.13.4",
+    "gamedig": "^0.2.25",
     "material-design-lite": "^1.2.1"
   }
 }
