@@ -1,1 +1,30 @@
-<iframe src="http://cache.www.gametracker.com/components/html0/?host=82.193.147.10:27015&bgColor=FFFFFF&fontColor=333333&titleBgColor=FFFFFF&titleColor=000000&borderColor=BBBBBB&linkColor=091858&borderLinkColor=5C5C5C&showMap=1&currentPlayersHeight=100&showCurrPlayers=1&topPlayersHeight=100&showTopPlayers=1&showBlogs=0&width=768" frameborder="0" scrolling="no" width="768" height="536"></iframe>
+<div class="row head">
+    <div class="col-md-6">
+        <h3>Карта: <span data-bind="text: currnetMap" class="label label-primary"></span></h3>
+    </div>
+    <div class="col-md-6">
+        <h3>Игроков на сервере: <span data-bind="text: playersAmount" class="label label-primary"></span><span> / </span><span data-bind="text: maxPlayers" class="label label-primary"></span></h3>
+    </div>
+</div>
+<div class="row players">
+    <div class="panel panel-default">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Никнейм</th>
+                    <th>Время на сервере</th>
+                    <th>Счет</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: playersList -->
+                <tr>
+                    <th scope="row" data-bind="text: name"></th>
+                    <td data-bind="text: time"></td>
+                    <td data-bind="text: score"></td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+</div>

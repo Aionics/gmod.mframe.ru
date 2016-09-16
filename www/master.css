@@ -31,9 +31,9 @@
 }
 .title .header {
     position: relative;
-    height: 40px;
+    height: 78px;
     vertical-align: middle;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 0px;
     margin: 0px 15px;
     border-bottom: solid 2px white;
@@ -45,7 +45,7 @@ span {
 
 .title .header span {
     color: white;
-    font-size: 28px;
+    font-size: 40px;
 }
 
 .title .description {
@@ -82,4 +82,25 @@ span {
 
 .menu-bar button.selected{
     background-color: #00b9d8
+}
+
+.statistics {
+    width: 100%;
+    padding: 10px;
+}
+
+.statistics .head {
+    border-bottom: solid 1px lightgrey
+    padding-bottom: 15px;
+}
+.row {
+    margin: 0;
+}
+
+.players {
+    margin-top: 30px;
+}
+
+.players thead {
+    background-color: lightgrey;
 }
