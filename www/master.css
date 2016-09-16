@@ -1,0 +1,51 @@
+.mdl-grid {
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mdl-cell {
+    margin: 0;
+}
+
+.cell-menu {
+    width: 250px;
+}
+
+.content {
+    width: calc(100% - 250px);
+    background-color: beige;
+}
+
+.title {
+    background-color: rgb(63, 81, 181);
+    text-align: center;
+    box-shadow: 0px -7px 41px 10px
+}
+.title .header {
+    position: relative;
+    height: 30px;
+
+    vertical-align: middle;
+    padding-top: 20px;
+    margin: 0 15px;
+    border-bottom: solid 2px white;
+}
+
+.title .header span {
+    color: white;
+    font-size: 28px;
+    font-family: "Roboto","Helvetica","Arial";
+}
+
+.title .description {
+    padding: 5px 0;
+}
+
+.title .description span {
+    color: white;
+    font-size: 10px;
+    display: block;
+    height: 15px;
+line-height: 13px
+}

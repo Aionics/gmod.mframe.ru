@@ -3,8 +3,9 @@ var app = express();
 var path = require("path");
 var PORT = 8083
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname+'/www/index.html'));
+app.use('/', express.static('./www'));
+app.get('/*', function (req, res) {
+    res.sendFile("index.html", { root: __dirname + "/www"} )
 });
 
 app.listen(PORT, function () {
