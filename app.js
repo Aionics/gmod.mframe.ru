@@ -44,7 +44,8 @@ app.post("/api/getserverdata", function(req, res) {
                 var answer = {
                     map: state.map,
                     playersamount: state.raw.numplayers,
-                    maxplayers: state.maxplayers
+                    maxplayers: state.maxplayers,
+                    palyerslist: state.players
                 }
                 res.json(answer)
             }
