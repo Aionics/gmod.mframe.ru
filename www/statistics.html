@@ -20,7 +20,14 @@
                 <!-- ko foreach: playersList -->
                 <tr>
                     <th scope="row" data-bind="text: name"></th>
-                    <td data-bind="text: time"></td>
+                    <td>
+                        <!-- ko if: time.hours > 0 -->
+                        <span data-bind="text: time.hours"></span>
+                        <span> ч. </span>
+                        <!-- /ko -->
+                        <span data-bind="text: time.minutes"></span>
+                        <span> м.</span>
+                    </td>
                     <td data-bind="text: score"></td>
                 </tr>
                 <!-- /ko -->
