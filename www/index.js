@@ -56,7 +56,13 @@ $( document ).ready(function() {
         site.currentPage(pager.page.route[0])
     })
 
-    site.goto("statistics");
+
+    var url = location.pathname.substr(1)
+    if (url == "statistics" || url == "rules") {
+        site.goto(url);
+    } else {
+        site.goto("statistics");
+    }
 
     setTimeout(site.loadAll, 200);
     setInterval(site.loadAll, 5000);
