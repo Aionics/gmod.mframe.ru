@@ -33,6 +33,7 @@ body, html {
     margin-left: 15%;
     margin-right: 15%;
     min-width: 768px;
+    padding: 15px;
 }
 
 .title {
@@ -97,7 +98,6 @@ span {
 
 .statistics {
     width: 100%;
-    padding: 10px;
 }
 
 .statistics .head {

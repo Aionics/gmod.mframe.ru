@@ -10,28 +10,8 @@ app.set('json spaces', 40);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// var respond = function(err, result) {
-//     if(err == undefined) {
-//         err = null
-//     }
-//
-//     if(result == undefined) {
-//         result = null
-//     }
-//
-//     this.json({
-//         err: err,
-//         result: result
-//     })
-// }
-//
-// app.use(function(req, res, next) {
-//     res.respond = function() {
-//         respond.apply(res, arguments)
-//     }
-// })
-
-app.post("/api/getserverdata", function(req, res) {
+app.post("/api/getserverdata", function(req, res, next) {
+    if (!req.xhr) return next();
     Gamedig.query(
         {
             type: 'garrysmod',
@@ -54,7 +34,7 @@ app.post("/api/getserverdata", function(req, res) {
 });
 
 app.use('/', express.static('./www'));
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile("index.html", { root: __dirname + "/www"} )
 });
 
