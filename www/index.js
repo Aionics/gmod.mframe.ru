@@ -54,7 +54,8 @@ $( document ).ready(function() {
     History.Adapter.bind(window, "statechange", function() {
         site.currentPage(pager.page.route[0])
     })
-    pager.navigate("statistics");
+    
+    site.goto("statistics");
 
     setTimeout(site.loadAll, 200);
     setInterval(site.loadAll, 5000);

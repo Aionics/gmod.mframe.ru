@@ -122,3 +122,12 @@ span {
 .players thead {
     background-color: lightgrey;
 }
+
+.mdl-list__item {
+    padding: 5px 16px;
+    min-height: 30px;
+}
+h4 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
