@@ -34,7 +34,8 @@ app.post("/api/getserverdata", function(req, res, next) {
 });
 
 app.use('/', express.static('./www'));
-app.get('/', function (req, res) {
+app.get('/*', function (req, res, next) {
+    if(req.url.indexOf('/api') !== -1) return next();
     res.sendFile("index.html", { root: __dirname + "/www"} )
 });
 
