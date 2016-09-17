@@ -123,11 +123,20 @@ span {
     background-color: lightgrey;
 }
 
-.mdl-list__item {
+.li {
     padding: 5px 16px;
     min-height: 30px;
 }
 h4 {
     margin-top: 20px;
     margin-bottom: 0px;
+}
+ul {
+    list-style-type: circle;
+}
+
+.ttop {
+    background-color: rgba(100,150,255,0.15);
+    border-radius: 5px;
+    padding: 0px 3px;
 }

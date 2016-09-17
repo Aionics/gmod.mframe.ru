@@ -44,6 +44,10 @@ var site = {
 
 $( document ).ready(function() {
 
+    setTimeout(function() {
+        $('.ttop').tooltip();
+    }, 500);
+
     var pager = new Pager($, ko)
     window.pager = pager
     pager.useHTML5history = true
@@ -54,7 +58,7 @@ $( document ).ready(function() {
     History.Adapter.bind(window, "statechange", function() {
         site.currentPage(pager.page.route[0])
     })
-    
+
     site.goto("statistics");
 
     setTimeout(site.loadAll, 200);
