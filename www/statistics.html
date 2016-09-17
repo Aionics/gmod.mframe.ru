@@ -1,9 +1,9 @@
 <div class="row head">
     <div class="col-md-6">
-        <h3>Карта: <span data-bind="text: currnetMap" class="label label-primary"></span></h3>
+        <h3>Карта: <span data-bind="text: currnetMap" class="c-label"></span></h3>
     </div>
     <div class="col-md-6">
-        <h3>Игроков на сервере: <span data-bind="text: playersAmount" class="label label-primary"></span><span> / </span><span data-bind="text: maxPlayers" class="label label-primary"></span></h3>
+        <h3>Игроков на сервере: <span data-bind="text: playersAmount" class="c-label"></span><span> / </span><span data-bind="text: maxPlayers" class="c-label"></span></h3>
     </div>
 </div>
 <div class="row players">
@@ -34,4 +34,13 @@
             </tbody>
         </table>
     </div>
+</div>
+<div class="row">
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?129"></script>
+
+<!-- VK Widget -->
+<div id="vk_groups"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 4, wide: 1, width: "768", height: "400", color1: 'FFFFFF', color2: '000000', color3: '5E81A8'}, 83743344);
+</script>
 </div>

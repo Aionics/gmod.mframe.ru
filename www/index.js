@@ -20,6 +20,8 @@ var site = {
             async: false
         }).responseJSON;
 
+        console.log("update");
+
         serverData.palyerslist.forEach(function (player, index, players) {
             var hours = Math.floor(player.time / 60 / 60)
             var minutes = Math.floor((player.time - hours * 60 * 60) / 60)
@@ -55,5 +57,5 @@ $( document ).ready(function() {
     pager.navigate("statistics");
 
     setTimeout(site.loadAll, 200);
-
+    setInterval(site.loadAll, 5000);
 });
