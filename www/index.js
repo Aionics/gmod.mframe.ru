@@ -56,13 +56,14 @@ $( document ).ready(function() {
         site.currentPage(pager.page.route[0])
     })
 
-
     var url = location.pathname.substr(1)
     if (url == "statistics" || url == "rules") {
         site.goto(url);
     } else {
         site.goto("statistics");
     }
+
+    m_chat.init();
 
     setTimeout(site.loadAll, 200);
     setInterval(site.loadAll, 5000);

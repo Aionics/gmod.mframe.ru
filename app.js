@@ -1,42 +1,15 @@
-var express = require('express');
-var app = express();
-var bodyParser = require("body-parser");
-var PORT = 8083
-
-var path = require("path");
-var Gamedig = require('gamedig');
+const express = require('express');
+const app = express();
+const server  = require('http').createServer(app);
+const bodyParser = require("body-parser");
+const path = require("path");
 
 app.set('json spaces', 40);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post("/api/getserverdata", function(req, res, next) {
-    if (!req.xhr) return next();
-    Gamedig.query(
-        {
-            type: 'garrysmod',
-            host: 'mframe.ru'
-        },
-        function(state) {
-            if (state.error) {
-                res.end("Server is offline");
-            } else {
-                var answer = {
-                    map: state.map,
-                    playersamount: state.raw.numplayers,
-                    maxplayers: state.maxplayers,
-                    palyerslist: state.players
-                }
-                res.json(answer)
-            }
-        }
-    );
-});
-
-app.post("/chat", function(req, res, next) {
-    console.log('received: ', req.body);
-    res.send('ok');
-})
+app.use('/api', require('./api'));
+const chat = require('./chat').socket(app, server)
 
 app.use('/', express.static('./www'));
 app.get('/*', function (req, res, next) {
@@ -44,6 +17,7 @@ app.get('/*', function (req, res, next) {
     res.sendFile("index.html", { root: __dirname + "/www"} )
 });
 
-app.listen(PORT, function () {
+const PORT = 8083
+server.listen(PORT, function () {
     console.log('listening on ' + PORT);
 });

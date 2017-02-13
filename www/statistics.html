@@ -7,33 +7,46 @@
     </div>
 </div>
 <div class="row players">
-    <div class="panel panel-default">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Никнейм</th>
-                    <th>Время на сервере</th>
-                    <th>Счет</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- ko foreach: playersList -->
-                <tr>
-                    <th scope="row" data-bind="text: name"></th>
-                    <td>
-                        <!-- ko if: time.hours > 0 -->
-                        <span data-bind="text: time.hours"></span>
-                        <span> ч. </span>
-                        <!-- /ko -->
-                        <span data-bind="text: time.minutes"></span>
-                        <span> м.</span>
-                    </td>
-                    <td data-bind="text: score"></td>
-                </tr>
-                <!-- /ko -->
-            </tbody>
-        </table>
+
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Никнейм</th>
+                        <th>Время на сервере</th>
+                        <th>Счет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ko foreach: playersList -->
+                    <tr>
+                        <th scope="row" data-bind="text: name"></th>
+                        <td>
+                            <!-- ko if: time.hours > 0 -->
+                            <span data-bind="text: time.hours"></span>
+                            <span> ч. </span>
+                            <!-- /ko -->
+                            <span data-bind="text: time.minutes"></span>
+                            <span> м.</span>
+                        </td>
+                        <td data-bind="text: score"></td>
+                    </tr>
+                    <!-- /ko -->
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <div class="col-md-4 chat" data-bind="with: m_chat">
+        <div class="container" data-bind="foreach: {data: messages, as: 'message'}">
+            <p>
+                <span data-bind="text: name + ':'"></span>
+                <span data-bind="text: message"></span>
+            </p>
+        </div>
+    </div>
+
 </div>
 <div class="row">
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?129"></script>
