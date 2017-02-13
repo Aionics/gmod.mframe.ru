@@ -33,6 +33,11 @@ app.post("/api/getserverdata", function(req, res, next) {
     );
 });
 
+app.post("/chat", function(req, res, next) {
+    console.log('received: ', req.body);
+    res.send('ok');
+})
+
 app.use('/', express.static('./www'));
 app.get('/*', function (req, res, next) {
     if(req.url.indexOf('/api') !== -1) return next();
