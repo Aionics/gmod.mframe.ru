@@ -7,5 +7,15 @@ var m_chat = {
         socket.on('chat_message', function (message) {
             m_chat.messages.push(message);
         })
+    },
+    preloadLast: function() {
+        var messages = $.ajax({
+            url: 'api/getserverdata',
+            dataType: 'json',
+            type: 'post',
+            async: false
+        }).responseJSON;
+
+        m_chat.messages(messages)
     }
 }

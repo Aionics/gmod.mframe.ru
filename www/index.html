@@ -50,7 +50,8 @@
                     <div class="content mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
                         <div class="statistics" data-bind="page: {
                             id: 'statistics',
-                            source: 'statistics.html'
+                            source: 'statistics.html',
+                            beforeShow: m_chat.preloadLast
                         }"></div>
                         <div data-bind="page: {
                             id: 'rules',
