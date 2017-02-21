@@ -17,7 +17,7 @@ function socket(app, server) {
             socket.emit('chat_message', message);
             lastMessages.push(message);
             if (lastMessages.length > 10) {
-                array.splice(0, 1);
+                lastMessages.splice(0, 1);
             }
 
         }
