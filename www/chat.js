@@ -10,7 +10,7 @@ var m_chat = {
     },
     preloadLast: function() {
         var messages = $.ajax({
-            url: 'api/getserverdata',
+            url: 'getlastmessages',
             dataType: 'json',
             type: 'post',
             async: false
