@@ -2,6 +2,7 @@ var groupColors = {
     owner: 'black',
     admin: 'rgb(250, 75, 75)',
     coder: 'rgb(72, 0, 173)',
+    lua_coder: 'rgb(72, 0, 173)',
     builder: 'rgb(255, 255, 0)',
     Unter_Builder: 'rgb(0, 100, 200)',
     respected: 'rgb(0, 168, 0)',
