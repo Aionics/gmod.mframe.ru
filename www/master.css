@@ -143,22 +143,27 @@ ul {
 }
 
 .chat {
-    position: absolute;
+    /*position: absolute;
     right: 0;
     top: 0;
-    bottom: 0;
-    background-color: lightgray;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 3px;
+    bottom: 0;*/
+    /*background-color: lightgray;*/
+    /*padding: 10px;*/
+    /*margin-bottom: 20px;*/
+    /*border-radius: 3px;*/
 }
 
 .chat .container {
     overflow: scroll;
-    height: 100%;
+    min-height: 100px;
+    max-height: 300px;
     width: 99%;
     overflow-x: hidden;
     overflow-y: scroll;
+    background-color: lightgray;
+    border-radius: 3px;
+    margin-bottom: 20px;    
+
 }
 
 ::-webkit-scrollbar {

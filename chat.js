@@ -8,11 +8,14 @@ function socket(app, server) {
 
     app.post("/chat", function(req, res, next) {
         let {name, group, team, message} = req.body
+        let utcTime = new Date()
+        utcTime = utcTime.getTime() + (utcTime.getTimezoneOffset() * 60000);
         if (team == 'false') {
             message = {
                 name: name,
                 group: group,
                 message: message
+                time: utcTime
             };
             socket.emit('chat_message', message);
             lastMessages.push(message);

@@ -5,7 +5,11 @@ var m_chat = {
         var socket = io();
 
         socket.on('chat_message', function (message) {
+            message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
             m_chat.messages.push(message);
+            if (m_chat.messages().length > 100) {
+                m_chat.messages.shift();
+            }
         })
     },
     preloadLast: function() {
