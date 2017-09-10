@@ -42,7 +42,12 @@
         <div class="col-xs-12 chat" data-bind="with: m_chat">
             <div class="container" id="chatBox" data-bind="foreach: {data: messages, as: 'message'}">
                 <p>
-                    <span data-bind="text: name + ':'"></span>
+                    <!-- ko if: group -->
+                    <span data-bind="text: group, style: {'color': groupColor}" class="bold"></span>
+                    <span class="bold red">|</span>
+                    <!-- /ko -->
+                    <span data-bind="text: name" class="bold"></span>
+                    <span class="bold red">:</span>
                     <span data-bind="text: message"></span>
                 </p>
             </div>

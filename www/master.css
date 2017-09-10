@@ -171,6 +171,12 @@ ul {
     margin-bottom: 20px;
 
 }
+.chat .red {
+    color: red;
+}
+.chat .bold {
+    font-weight: bold;
+}
 
 ::-webkit-scrollbar {
     width: 6px;
