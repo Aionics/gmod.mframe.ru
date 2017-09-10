@@ -10,14 +10,12 @@ var groupColors = {
     user: 'rgb(140, 140, 140)',
     mingebag: 'rgb(232, 130, 0)'
 }
-
 var formatMessage = function(message) {
     message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
     let group = message.group.replace(/-/g, '_')
     if (group in groupColors) {
         message.groupColor = groupColors[group]
     }
-    m_chat.messages.push(message);
     return message
 }
 var m_chat = {
@@ -35,16 +33,21 @@ var m_chat = {
                 m_chat.messages.shift();
             }
         })
-    },
-    preloadLast: function() {
-        var messages = $.ajax({
+        let messages
+        $.ajax({
             url: 'getlastmessages',
             dataType: 'json',
             type: 'post',
-            async: false
-        }).responseJSON;
-        for (message of messages) {
-            m_chat.messages.push(formatMessage(message));
+            async: false,
+            success: function(answer) {
+                messages = answer;
+            }
+        })
+
+        for (message in messages) {
+            m_chat.messages.push(formatMessage(messages[message]));
         }
+        // var chatBox = document.getElementById('chatBox');
+        // chatBox.scrollTop = chatBox.scrollHeight;
     }
 }

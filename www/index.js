@@ -63,8 +63,10 @@ $( document ).ready(function() {
         site.goto("statistics");
     }
 
-    m_chat.init();
 
+    setTimeout(function() {
+        m_chat.init();
+    }, 200);
     setTimeout(site.loadAll, 200);
     setInterval(site.loadAll, 5000);
 });
