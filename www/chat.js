@@ -7,9 +7,9 @@ var m_chat = {
         socket.on('chat_message', function (message) {
             message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
             m_chat.messages.push(message);
-            
+
             var chatBox = document.getElementById('chatBox');
-            elem.scrollTop = elem.scrollHeight;
+            chatBox.scrollTop = chatBox.scrollHeight;
             if (m_chat.messages().length > 100) {
                 m_chat.messages.shift();
             }
