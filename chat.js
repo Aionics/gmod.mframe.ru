@@ -14,7 +14,7 @@ function socket(app, server) {
             message = {
                 name: name,
                 group: group,
-                message: message
+                message: message,
                 time: utcTime
             };
             socket.emit('chat_message', message);
