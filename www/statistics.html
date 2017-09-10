@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12 chat" data-bind="with: m_chat">
-            <div class="container" data-bind="foreach: {data: messages, as: 'message'}">
+            <div class="container" id="chatBox" data-bind="foreach: {data: messages, as: 'message'}">
                 <p>
                     <span data-bind="text: name + ':'"></span>
                     <span data-bind="text: message"></span>
