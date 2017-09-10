@@ -23,28 +23,31 @@
         <link rel="stylesheet" href="master.css" media="screen">
     </head>
     <body>
+        <div class="cell-menu">
+            <div class="title">
+                <div class="header">
+                    <span>Mainframe</span>
+                </div>
+                <div class="description">
+                    <span style="font-size: 12px;">Garry's mod sandbox server</span>
+                    <span>[E2P sprops ...]</span>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="btn-grp">
+                    <button data-bind="click: function() { goto('statistics') }, css: {selected: site.currentPage() == 'statistics'}" class="selected mdl-button mdl-js-button mdl-js-ripple-effect">
+                        Статистика
+                    </button>
+                    <button data-bind="click: function() { goto('rules') }, css: {selected: site.currentPage() == 'rules'}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                        Правила
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="row sas">
-                <div class="col-xs-2 cell-menu">
-                    <div class="title">
-                        <div class="header">
-                            <span>Mainframe</span>
-                        </div>
-                        <div class="description">
-                            <span style="font-size: 12px;">Garry's mod sandbox server</span>
-                            <span>[E2P sprops ...]</span>
-                        </div>
-                    </div>
-                    <div class="menu-bar">
-                        <div class="btn-grp">
-                            <button data-bind="click: function() { goto('statistics') }, css: {selected: site.currentPage() == 'statistics'}" class="selected mdl-button mdl-js-button mdl-js-ripple-effect">
-                                Статистика
-                            </button>
-                            <button data-bind="click: function() { goto('rules') }, css: {selected: site.currentPage() == 'rules'}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                                Правила
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-xs-2">
+
                 </div>
                 <div class="col-xs-10 content-wrapper">
                     <div class="content mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
