@@ -11,6 +11,15 @@ var groupColors = {
     mingebag: 'rgb(232, 130, 0)'
 }
 
+var formatMessage = function(message) {
+    message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
+    let group = message.group.replace(/-/g, '_')
+    if (group in groupColors) {
+        message.groupColor = groupColors[group]
+    }
+    m_chat.messages.push(message);
+    return message
+}
 var m_chat = {
     messages: ko.observableArray(),
 
@@ -18,12 +27,7 @@ var m_chat = {
         var socket = io();
 
         socket.on('chat_message', function (message) {
-            message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
-            let group = message.group.replace(/-/g, '_')
-            if (group in groupColors) {
-                message.groupColor = groupColors[group]
-            }
-            m_chat.messages.push(message);
+            m_chat.messages.push(formatMessage(message));
 
             var chatBox = document.getElementById('chatBox');
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -39,7 +43,8 @@ var m_chat = {
             type: 'post',
             async: false
         }).responseJSON;
-
-        m_chat.messages(messages)
+        for (message of messages) {
+            m_chat.messages.push(formatMessage(message));
+        }
     }
 }
