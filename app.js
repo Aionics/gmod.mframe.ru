@@ -10,7 +10,9 @@ nunjucks.configure('./www/views', {
     express: app
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 
 const chat = require('./chat').socket(app, server)
@@ -35,7 +37,10 @@ Object.keys(pages).forEach((page_index) => {
     let page = pages[page_index]
     console.log(page);
     app.get(page.url, (req, res) => {
-        return res.render(page.file, {pages: pages, current_page: page})
+        return res.render(page.file, {
+            pages: pages,
+            current_page: page
+        })
     })
 })
 app.use((req, res, next) => {
