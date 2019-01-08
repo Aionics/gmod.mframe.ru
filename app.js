@@ -24,7 +24,7 @@ let pages = [
     {
         id: "main",
         name: "Статистика",
-        file: "index.html",
+        file: "statistics.html",
         url: "/"
     },
     {
