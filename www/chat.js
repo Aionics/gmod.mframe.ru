@@ -19,7 +19,7 @@ var formatMessage = function(message) {
     return message
 }
 var m_chat = {
-    messages: ko.observableArray(),
+    messages: [],
 
     init: function() {
         var socket = io();

@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+{% block content %}
+<script src="statistics.js" type="text/javascript" charset="utf-8"></script>
+
+<div id="statistics" class="binding_wrapper">
+    <div class="row head">
+        <div class="col-xs-6">
+            <h3>Карта: <span data-bind="text: map_name" class="c-label"></span></h3>
+        </div>
+        <div class="col-xs-6">
+            <h3>Игроков на сервере: <span data-bind="text: players_count" class="c-label"></span><span> / </span><span data-bind="text: max_players" class="c-label"></span></h3>
+        </div>
+    </div>
+    <div class="players">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Никнейм</th>
+                                <th>Время на сервере</th>
+                                <th>Счет</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ko foreach: players -->
+                            <tr>
+                                <th scope="row" data-bind="text: name"></th>
+                                <td>
+                                    <!-- ko if: time.hours > 0 -->
+                                    <span data-bind="text: time.hours"></span>
+                                    <span> ч. </span>
+                                    <!-- /ko -->
+                                    <span data-bind="text: time.minutes"></span>
+                                    <span> м.</span>
+                                </td>
+                                <td data-bind="text: score"></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 chat" data-bind="with: m_chat">
+                <div class="container" id="chatBox" data-bind="foreach: {data: messages, as: 'message'}">
+                    <p>
+                        <!-- ko if: group && groupColor-->
+                        <span data-bind="text: group, style: {'color': groupColor}" class="bold"></span>
+                        <span class="bold red">|</span>
+                        <!-- /ko -->
+                        <span data-bind="text: name" class="bold"></span>
+                        <span class="bold red">:</span>
+                        <span data-bind="text: message"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width: 100%">
+        <div class="vk_widget" style="width: 100%">
+            <script type="text/javascript" src="//vk.com/js/api/openapi.js?144"></script>
+            <div id="vk_widget">
+                <div id="vk_groups"></div>
+            </div>
+            <script>
+                function VK_Widget_Init() {
+                    document.getElementById('vk_groups').innerHTML = "";
+                    var vk_width = document.getElementById('vk_widget').clientWidth;
+                    VK.Widgets.Group("vk_groups", {
+                        mode: 4,
+                        wide: 1,
+                        width: vk_width,
+                        height: "400",
+                        color1: 'FFFFFF',
+                        color2: '000000',
+                        color3: '5E81A8'
+                    }, 83743344);
+                };
+                window.addEventListener('load', VK_Widget_Init, false);
+                window.addEventListener('resize', VK_Widget_Init, false);
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}
