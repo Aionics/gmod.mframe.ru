@@ -1,9 +1,12 @@
 const express = require('express');
+const expressLess = require('express-less');
 const nunjucks = require('nunjucks')
 const app = express();
 const server = require('http').createServer(app);
 const bodyParser = require("body-parser");
 const path = require("path");
+
+global.__base = __dirname + "/"
 
 nunjucks.configure('./www/views', {
     autoescape: true,
@@ -14,8 +17,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-
-const chat = require('./chat').socket(app, server)
+app.use('/css', expressLess(__base + 'www/less', { cache: true }));
 app.use('/api', require('./api'));
 app.use('/', express.static('./www'));
 let pages = [
