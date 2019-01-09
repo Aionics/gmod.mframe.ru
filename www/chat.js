@@ -12,7 +12,7 @@ var groupColors = {
 }
 var formatMessage = function(message) {
     message.time = new Date(message.time + (3600000 * (new Date).getTimezoneOffset() ));
-    let group = message.group.replace(/-/g, '_')
+    var group = message.group.replace(/-/g, '_')
     if (group in groupColors) {
         message.groupColor = groupColors[group]
     }
@@ -33,7 +33,7 @@ var m_chat = {
                 m_chat.messages.shift();
             }
         })
-        let messages
+        var messages
         $.ajax({
             url: 'getlastmessages',
             dataType: 'json',
